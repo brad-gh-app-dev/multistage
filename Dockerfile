@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-
+# test
 # ---- Stage 1: build ----------------------------------------------------------
 FROM golang:1.23-alpine AS build
 
