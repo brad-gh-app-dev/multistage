@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # ---- Stage 1: build ----------------------------------------------------------
-FROM golang:1.23-alpine AS build
+FROM golang:1.24-alpine AS build
 
 WORKDIR /src
 
@@ -28,7 +28,7 @@ RUN --mount=type=cache,target=/go/pkg/mod \
     go vet ./... && go test ./...
 
 # ---- Stage 3: runtime --------------------------------------------------------
-FROM gcr.io/distroless/static-debian12:nonroot AS runtime
+FROM gcr.io/distroless/static-debian11:nonroot AS runtime
 
 WORKDIR /
 COPY --from=build /out/app /app

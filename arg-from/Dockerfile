@@ -2,10 +2,10 @@
 
 # Global ARGs: declared before the first FROM, so they are usable in FROM lines.
 # They are NOT visible inside a stage unless re-declared after that stage's FROM.
-ARG GO_VERSION=1.23
+ARG GO_VERSION=1.24
 ARG ALPINE_VERSION=3.20
 ARG BUILD_IMAGE=golang:${GO_VERSION}-alpine${ALPINE_VERSION}
-ARG RUNTIME_IMAGE=gcr.io/distroless/static-debian12:nonroot
+ARG RUNTIME_IMAGE=gcr.io/distroless/static-debian11:nonroot
 
 # ---- Stage 1: build ----------------------------------------------------------
 FROM ${BUILD_IMAGE} AS build
